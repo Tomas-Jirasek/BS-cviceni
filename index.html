@@ -15,12 +15,6 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <!-- Scripts -->
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-      crossorigin="anonymous"
-    ></script>
   </head>
   <body>
     <!-- Home Section -->
@@ -80,7 +74,7 @@
                 <input type="date" name="toDate" id="" class="form-control" />
               </div>
             </div>
-            <div class="row mb-3 justify-content-end align-items-end">
+            <div class="row mb-3">
               <div class="col-12 col-lg-6">
                 <label for="personInput" class="form-label">Počet osob</label>
                 <select name="personCount" id="personInput" class="form-select">
@@ -102,47 +96,20 @@
             </div>
             <input type="button" value="Rezervovat" class="btn btn-danger" />
             <button
+              type="button"
+              id="odkaz"
               class="btn btn-dark my-2 video-btn"
               data-bs-toggle="modal"
-              data-src="https://www.youtube.com/embed/IP7uGKgJL8U"
+              data-src="https://www.youtube.com/embed/2up_Eq6r6Ko"
               data-bs-target="#myModal"
             >
-              Virtualni prohlidka
+              Virtuální prohlídka
             </button>
           </form>
         </div>
       </div>
     </section>
-    <!-- Modal -->
-    <div
-      class="modal fade"
-      id="myModal"
-      tabindex="-1"
-      style="display: none"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-body">
-            <button
-              type="button"
-              class="btn-close text-bg-danger"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-            <!-- 16:9 aspect ratio -->
-            <div class="ratio ratio-16x9">
-              <iframe
-                class="embed-responsive-item"
-                id="video"
-                allowscriptaccess="always"
-                allow="autoplay"
-              ></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
     <!-- Navbar -->
     <nav
       class="navbar navbar-expand-md navbar-dark bg-dark sticky-top container-fluid"
@@ -226,7 +193,11 @@
           <div
             class="col-md-6 col-lg-6 col-xl-3 p-3 d-flex align-items-stretch"
           >
-            <div class="card">
+            <div
+              class="card"
+              data-bs-toggle="tooltip"
+              data-bs-title="Ideální volba"
+            >
               <img
                 src="images/singleBed.jpg"
                 alt="single_img"
@@ -263,12 +234,9 @@
                   </tbody>
                 </table>
                 <a
-                  href=""
+                  href="#contact"
                   class="btn btn-md btn-danger mt-auto"
-                  data-toggle="tooltip"
                   title=""
-                  data-content="Vyskakovaci okno!"
-                  data-original-title="Tooltip!"
                   >Zarezervovat</a
                 >
               </div>
@@ -279,10 +247,9 @@
           >
             <div
               class="card"
-              data-toggle="tooltip"
-              data-placement="right"
+              data-bs-toggle="tooltip"
+              data-bs-title="Nejlepší poměr cena/výkon"
               title=""
-              data-original-title="Tooltip on right"
             >
               <img
                 src="images/singleBedExtra.jpg"
@@ -323,13 +290,7 @@
                     </tr>
                   </tbody>
                 </table>
-                <a
-                  href=""
-                  class="btn btn-md btn-danger mt-auto"
-                  data-toggle="tooltip"
-                  title=""
-                  data-content="Vyskakovaci okno!"
-                  data-original-title="Tooltip!"
+                <a href="" class="btn btn-md btn-danger mt-auto" title=""
                   >Zarezervovat</a
                 >
               </div>
@@ -339,7 +300,13 @@
           <div
             class="col-md-6 col-lg-6 col-xl-3 p-3 d-flex align-items-stretch"
           >
-            <div class="card">
+            <div
+              class="card"
+              data-bs-toggle="popover"
+              data-bs-placement="top"
+              data-bs-title="Dvoulůžkový pokoj s přistýlkou"
+              data-bs-content="V ceně víno zdarma"
+            >
               <img
                 src="images/doubleBed.jpg"
                 alt="triple_img"
@@ -379,13 +346,7 @@
                     </tr>
                   </tbody>
                 </table>
-                <a
-                  class="btn btn-md btn-danger mt-auto"
-                  data-toggle="popover"
-                  data-placement="top"
-                  data-content="Top popover"
-                  title=""
-                  data-original-title="Popover!"
+                <a class="btn btn-md btn-danger mt-auto" title=""
                   >Zarezervovat</a
                 >
               </div>
@@ -396,10 +357,11 @@
           >
             <div
               class="card"
-              data-toggle="popover"
               title=""
-              data-content="And here's some amazing content. It's very engaging. Right?"
-              data-original-title="Popover title"
+              data-bs-toggle="popover"
+              data-bs-placement="bottom"
+              data-bs-title="VIP"
+              data-bs-content="Ano, je se vším všudy"
             >
               <img
                 src="images/doubleBedExtra.jpg"
@@ -435,12 +397,9 @@
                   </tbody>
                 </table>
                 <a
+                  href="#contact"
                   class="btn btn-md btn-danger mt-auto"
-                  data-toggle="popover"
-                  data-placement="top"
-                  data-content="Top popover"
                   title=""
-                  data-original-title="Popover!"
                   >Zarezervovat</a
                 >
               </div>
@@ -611,19 +570,68 @@
         </div>
       </section>
     </footer>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="myModal"
+      tabindex="-1"
+      style="display: none"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <button
+              type="button"
+              class="btn-close bg-danger"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+            <!-- 16:9 aspect ratio -->
+            <div class="ratio ratio-16x9">
+              <iframe
+                class="embed-responsive-item"
+                id="video"
+                allowscriptaccess="always"
+                allow="autoplay"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script>
-      $(function () {
-        $('[data-toggle="popover"]').popover();
+      window.jQuery ||
+        document.write('<script src="js/jquery-1.10.1.min.js"><\/script>');
+    </script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // tooltips
+      const tooltipTriggerList = document.querySelectorAll(
+        '[data-bs-toggle="tooltip"]'
+      );
+      const tooltipList = [...tooltipTriggerList].map(
+        (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
+      );
+
+      // popovers
+      const popoverTriggerList = document.querySelectorAll(
+        '[data-bs-toggle="popover"]'
+      );
+      const popoverList = [...popoverTriggerList].map(
+        (popoverTriggerEl) => new bootstrap.Popover(popoverTriggerEl)
+      );
+    </script>
+    <script>
+      $("#odkaz").click(function () {
+        var src = "https://www.youtube.com/embed/2up_Eq6r6Ko;autoplay=1";
+        $("#myModal").modal("show");
+        $("#myModal iframe").attr("src", src);
       });
-      $(function () {
-        $('[data-toggle="tooltip"]').tooltip();
-      });
-      $(".modal").on("hide.bs.modal", function () {
-        var memory = $(this).html();
-        $(this).html(memory);
-      });
-      $(".navbar-collapse a").click(function () {
-        $(".navbar-collapse").collapse("hide");
+      console.log("#mymodal");
+
+      $("#myModal").on("hidden.bs.modal", function () {
+        $("#myModal iframe").removeAttr("src");
       });
     </script>
   </body>

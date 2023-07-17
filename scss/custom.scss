@@ -1,0 +1,60 @@
+// Custom.scss
+// Option A: Include all of Bootstrap
+
+// Include any default variable overrides here (though functions won't be available)
+$primary: #4568ff;
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// Then add additional custom code here
+@import url("https://fonts.googleapis.com/css2?family=Caprasimo&family=Martian+Mono:wght@400;800&family=Montserrat:wght@800&display=swap");
+body {
+  min-height: 3000px;
+}
+#home {
+  min-height: 880px;
+  background: url(../images/bg-home.jpg) no-repeat center;
+}
+#home h1 {
+  font-weight: bold;
+}
+.grey-bg {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 22px;
+}
+.modal-dialog {
+  max-width: 800px;
+  margin: 30px auto;
+}
+
+.modal-body {
+  position: relative;
+  padding: 0px;
+}
+.btn-close {
+  position: absolute;
+  right: -30px;
+  top: 0;
+}
+.navbar {
+  min-height: 60px;
+}
+.g1font {
+  text-align: justify;
+  font-family: "Martian Mono", monospace;
+  font-weight: 400;
+}
+.g2font {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+}
+.carousel-item {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 22px;
+}
+#gallery {
+  padding-left: 0;
+  padding-right: 0;
+}
+h2 {
+  text-transform: uppercase;
+}

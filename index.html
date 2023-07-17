@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <title>Jirásek Tomáš - Hotel Fiktiv</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="description" content="Cviceni z Bootstrapu." />
+    <meta name="author" content="Tomas Jirasek" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+        $(document).ready(function() {
+
+// Gets the video src from the data-src on each button
+
+var $videoSrc;  
+$('.video-btn').click(function() {
+    $videoSrc = $(this).data( "src" );
+});
+console.log($videoSrc);
+
+  
+  
+// when the modal is opened autoplay it  
+$('#myModal').on('shown.bs.modal', function (e) {
+    
+// set the video src to autoplay and not to show related video. Youtube related video is like a box of chocolates... you never know what you're gonna get
+$("#video").attr('src',$videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0" ); 
+})
+  
+
+
+// stop playing the youtube video when I close the modal
+$('#myModal').on('hide.bs.modal', function (e) {
+    // a poor man's stop video
+    $("#video").attr('src',$videoSrc); 
+}) 
+    
+    
+
+
+  
+  
+// document ready  
+});
+
+
+
+    </script>
+  </head>
+  <body>
+    <!-- Home Section -->
+    <section id="home" class="d-flex justify-content-center align-items-center">
+      <div class="container-fluid text-white">
+        <h3 class="mb-0 mt-5">Most fictive</h3>
+        <h1 class="display-1 text-uppercase">Hotel Fiktiv</h1>
+        <div class="form container-fluid grey-bg py-3">
+          <h4>Rezervační formulář</h4>
+          <form action="">
+            <div class="row mb-3">
+              <div class="col-12 col-lg-3">
+                <label for="nameInput" class="form-label">Jméno</label>
+                <input
+                  type="text"
+                  id="nameInput"
+                  class="form-control"
+                  placeholder="Tomáš"
+                />
+              </div>
+
+              <div class="col-12 col-lg-3">
+                <label for="surnameInput" class="form-label">Příjmení</label>
+                <input
+                  type="text"
+                  id="surnameInput"
+                  class="form-control"
+                  placeholder="Vohnout"
+                />
+              </div>
+              <div class="col-12 col-lg-3">
+                <label for="emailInput" class="form-label">E-mail</label>
+                <input
+                  type="email"
+                  id="emailInput"
+                  class="form-control"
+                  placeholder="muj@email.cz"
+                />
+              </div>
+              <div class="col-12 col-lg-3">
+                <label for="telInput" class="form-label">Tel. číslo</label>
+                <input
+                  type="tel"
+                  id="telInput"
+                  class="form-control"
+                  placeholder="+420 791 275 282"
+                />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-12 col-lg-6">
+                <label for="fromDate">Od</label>
+                <input type="date" name="fromDate" id="" class="form-control" />
+              </div>
+              <div class="col-12 col-lg-6">
+                <label for="toDate">Do</label>
+                <input type="date" name="toDate" id="" class="form-control" />
+              </div>
+            </div>
+            <div class="row mb-3 justify-content-end align-items-end">
+              <div class="col-12 col-lg-6">
+                <label for="personInput" class="form-label">Počet osob</label>
+                <select name="personCount" id="personInput" class="form-select">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </div>
+              <div class="col-12 col-lg-6">
+                <label for="roomInput" class="form-label">Pokoj</label>
+                <select name="roomCount" id="roomInput" class="form-select">
+                  <option value="type1">Jednolůžkový</option>
+                  <option value="type2">Dvoulůžkový</option>
+                  <option value="type3">Dvoulůžkový s přistýlkou</option>
+                </select>
+              </div>
+            </div>
+            <input type="button" value="Rezervovat" class="btn btn-danger" />
+            <button type="button" class="btn btn-dark video-btn" data-bs-toggle="modal" data-src="https://www.youtube.com/embed/IP7uGKgJL8U" data-bs-target="#myModal">
+                Virtuální prohlídka
+              </button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- Modal -->  
+    <div class="modal-dialog" role="document">
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-content">
+        <div class="modal-body">
+         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></span>
+          </button>        
+          <!-- 16:9 aspect ratio -->
+        <div class="ratio ratio-16x9">
+            <iframe class="embed-responsive-item" src="" id="video"  allowscriptaccess="always" allow="autoplay"></iframe>
+        </div>
+        </div>
+       </div>
+    </div>
+    </div> 
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top container-fluid">
+        <div class="logo mx-4"><a href="#home" class="link-light text-decoration-none"><h3>Hotel Fiktiv</h3></a></div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar1" aria-controls="navbar1" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbar1">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="#history">Historie</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#price">Ceník</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#gallery">Galerie</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">Kontakt</a>
+              </li>
+              
+            </ul>
+           
+          </div>
+    </nav>
+    <main>
+    <!-- History Section -->
+    <section id="history" class="container">
+        <h2 class="text-center display-4 mb-4">Historie</h2>
+        <div class="row">
+            <div class="col-md-6 col-lg-4">
+                <h4>Něco z naší minulosti</h4>
+                <p class="g1font">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit non odit atque, labore nemo iure mollitia at voluptatem sed iusto quae ut omnis provident corrupti optio reprehenderit obcaecati libero quos vero quaerat animi repellat? Nemo obcaecati excepturi molestiae, laboriosam sit reiciendis saepe explicabo cum fugiat accusantium, delectus laudantium distinctio incidunt.
+                </p>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <h4>Taky o nás</h4>
+                <p class="g2font">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus obcaecati exercitationem, qui quisquam hic officiis voluptate illum quae? Magni optio voluptatem error in, quod reprehenderit deserunt. Ad deserunt eius deleniti quia? Quaerat cumque voluptatibus totam expedita vel consequatur, odit excepturi nihil repellat temporibus molestiae culpa dignissimos similique rerum. Facilis, ipsam.</p>
+            </div>
+            
+            <div class="col-md-12 col-lg-4 text-center">
+                <img src="images/our-history.jpg" alt="history_img" class="img-fluid d-none d-md-inline">
+            </div>
+        </div>
+    </section>
+    <!-- Price Section -->
+    <section id="price" class="container-fluid">
+        <h2 class="text-center display-4 mb-4">Ceník</h2>
+        <div class="row m-1">
+                    <div class="col-md-6 col-lg-6 col-xl-3 p-3 d-flex align-items-stretch">
+                        <div class="card">
+                            <img src="images/singleBed.jpg" alt="single_img" class="card-img-top">
+                            <div class="card-body d-flex flex-column p-1">
+                                <h2 class="card-title text-primary text-center">Jednolůžkový pokoj</h2>
+                                <p class="card-text text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, voluptatem.</p>
+                                <table class="table table-striped text-center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Počet nocí</th>
+                                            <th scope="col">Na osobu</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>250 CZK</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>450 CZK</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td>666 CZK</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <a href="" class="btn btn-md btn-danger mt-auto" data-toggle="tooltip" title="" data-content="Vyskakovaci okno!" data-original-title="Tooltip!">Zarezervovat</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3 p-3 d-flex align-items-stretch">
+                        <div class="card" data-toggle="tooltip" data-placement="right" title="" data-original-title="Tooltip on right">
+                            <img src="images/singleBedExtra.jpg" alt="double_img" class="card-img-top">
+                            <div class="card-body d-flex flex-column p-1">
+                                <h2 class="card-title text-primary text-center">Dvoulůžkový pokoj</h2>
+                                <p class="card-text text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, perferendis.</p>
+                                <table class="table table-striped-columns text-center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Počet nocí</th>
+                                            <th scope="col">Na osobu</th>
+                                            <th scope="col">Za dvě osoby</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>100 CZK</td>
+                                            <td>120 CZK</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>200 CZK</td>
+                                            <td>250 CZK</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td>560 CZK</td>
+                                            <td>440 CZK</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <a href="" class="btn btn-md btn-danger mt-auto" data-toggle="tooltip" title="" data-content="Vyskakovaci okno!" data-original-title="Tooltip!">Zarezervovat</a>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="col-md-6 col-lg-6 col-xl-3 p-3 d-flex align-items-stretch">
+                        <div class="card">
+                            <img src="images/doubleBed.jpg" alt="triple_img" class="card-img-top">
+                            <div class="card-body d-flex flex-column p-1">
+                                <h2 class="card-title text-primary text-center">Dvoulůžkový pokoj s přistýlkou</h2>
+                                <p class="card-text text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, officia?</p>
+                                <table class="table table-info text-center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Počet nocí</th>
+                                            <th scope="col">Na osobu</th>
+                                            <th scope="col">Za dvě osoby</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>100 CZK</td>
+                                            <td>120 CZK</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>200 CZK</td>
+                                            <td>250 CZK</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td>560 CZK</td>
+                                            <td>440 CZK</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <a class="btn btn-md btn-danger mt-auto" data-toggle="popover" data-placement="top" data-content="Top popover" title="" data-original-title="Popover!">Zarezervovat</a>
+    
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3 p-3 d-flex align-items-stretch">
+                        <div class="card" data-toggle="popover" title="" data-content="And here's some amazing content. It's very engaging. Right?" data-original-title="Popover title">
+                            
+                            <img src="images/doubleBedExtra.jpg" alt="deluxe_img" class="card-img-top">
+                            <div class="card-body d-flex flex-column p-1">
+                                <h2 class="card-title text-primary text-center">VIP pokoj</h2>
+                                <p class="card-text text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, non?</p>
+                                <table class="table table-active text-center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Počet nocí</th>
+                                            <th scope="col">Za osobu</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>2000 CZK</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>3800 CZK</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td>5000 CZK</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <a class="btn btn-md btn-danger mt-auto" data-toggle="popover" data-placement="top" data-content="Top popover" title="" data-original-title="Popover!">Zarezervovat</a>
+    
+                            </div>
+                        </div>
+                    </div>
+        </div>
+    </section>
+    <!-- Gallery Section -->
+    <section id="gallery" class="container-fluid">
+        <h2 class="text-center display-4 mb-4">Galerie</h2>
+        <div id="myCarousel" class="carousel slide mb-6 pointer-event" data-bs-ride="carousel" data-bs-theme="light">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class="active" aria-current="true"></button>
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item">
+                <img src="images/carousel-1.jpg" alt="singlebed" class="img-fluid d-block w-100">
+                <div class="container">
+                  <div class="carousel-caption text-start">
+                    <h1>Example headline.</h1>
+                    <p class="opacity-75">Some representative placeholder content for the first slide of the carousel.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item active">
+                <img src="images/carousel-2.jpg" alt="singlebedextra" class="img-fluid d-block w-100">
+                <div class="container">
+                  <div class="carousel-caption">
+                    <h1>Another example headline.</h1>
+                    <p>Some representative placeholder content for the second slide of the carousel.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="images/carousel-3.jpg" alt="doublebed" class="img-fluid d-block w-100">
+                <div class="container">
+                  <div class="carousel-caption text-end">
+                    <h1>One more for good measure.</h1>
+                    <p>Some representative placeholder content for the third slide of this carousel.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+    </section>
+    </main>
+    <footer>
+    <!-- Contact Section -->
+    <section id="contact" class="container-fluid bg-dark text-white">
+        <h2 class="text-center display-4 mb-4">Kontakt</h2>
+        <div class="row">
+            <div class="col-12 col-lg-4 d-flex justify-content-center mb-3">
+                <iframe width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=17.%20listopadu%202169/13%2017.%20listopadu%202169/13+(Hotel%20Fiktiv)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/population/">Population calculator map</a></iframe>
+            </div>
+            <div class="col-12 col-lg-4 d-flex justify-content-center mb-3">
+                <div id="icons" class="col-12 col-lg-3 d-flex flex-row flex-md-column align-items-center justify-content-around">
+                    <a href="#home"><i class="fa fa-instagram fa-4x text-white"></i></a>
+                    
+                    <a href="#home"><i class="fa fa-facebook fa-4x text-white"></i></a>
+
+                    <a href="#home"><i class="fa fa-twitter fa-4x text-white"></i></a>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 d-flex justify-content-center">
+                <address>
+                    <h4>Adresa</h4>
+                    
+                    <i class="fa fa-arrow-circle-right mx-1"></i>17. listopadu 2169/13<br>
+                        <i class="fa fa-location-arrow mx-1"></i>708 00 Ostrava - Poruba<br>
+                        <i class="fa fa-phone mx-1"></i>+725 654 987 354<br>
+                        <i class="fa fa-flag mx-1"></i>Česko
+                </address>
+            </div>
+        </div>
+    </section>
+    </footer>
+    <script>
+        
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+            });
+            $(function () {
+             $('[data-toggle="tooltip"]').tooltip()
+            });
+                $('.modal').on('hide.bs.modal', function () {
+                var memory = $(this).html();
+                $(this).html(memory);
+            });
+            $('.navbar-collapse a').click(function() {
+                $(".navbar-collapse").collapse('hide');
+            });
+        
+    </script>
+  </body>
+</html>
+ 

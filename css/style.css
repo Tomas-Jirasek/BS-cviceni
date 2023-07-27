@@ -11926,4 +11926,12 @@ h2, .h2 {
   border-radius: 0;
 }
 
+.contact-highlight {
+  color: white;
+}
+
+.contact-highlight:hover {
+  color: var(--bs-primary);
+}
+
 /*# sourceMappingURL=style.css.map */
